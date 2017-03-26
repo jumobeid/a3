@@ -36,7 +36,7 @@
 
 			<div class="form-group">
 			{!!Form::label('service','Service:')!!}
-			{!!Form::select('service', array('E' => 'Excellent', 'G' => 'Good', 'P' => 'Poor'),['class'=>'selectpicker form-control'])!!}
+			{!!Form::select('service', array('E' => 'Excellent', 'G' => 'Good', 'P' => 'Poor'),'E',['class'=>'selectpicker form-control'])!!}
 			</div>
 
 			<div class="form-group">
