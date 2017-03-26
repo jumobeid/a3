@@ -29,7 +29,7 @@
 
 			{!!Form::label('round','RoundTotal:')!!}
 
-			{!!Form::checkbox('round','true',($isRound)?'CHECKED':'',['class'=>'checkbox checkbox-primary form-control'])!!}
+			{!!Form::checkbox('round','true',($isRound)?'CHECKED':'',['class'=>'mycheckbox'])!!}
 
 			</div>
 

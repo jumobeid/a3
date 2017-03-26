@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>
-        @yield('title', 'Foobooks')
+        @yield('title', 'Bill Splitter')
     </title>
 
     <meta charset='utf-8'>
@@ -11,11 +11,13 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
+
      <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
      <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     @stack('head')
 
 </head>
@@ -33,14 +35,14 @@
       <section>
           @yield('content')
       </section>
-    
+
 
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
     @stack('body')
-    <footer>
+    <footer class="endit">
         &copy; {{ date('Y') }}
     </footer>
 

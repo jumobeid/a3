@@ -1,3 +1,11 @@
 .container{
+  text-align:left;
+}
+.mycheckbox{
+  background-color: #428bca !important;
+  border-color: #428bca !important;
+  text-align:left;
+}
+.endit{
   text-align:center;
 }
