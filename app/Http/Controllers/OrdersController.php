@@ -17,11 +17,18 @@ class OrdersController extends Controller
 
 
       //$numberOfPeople="";
-      $validator = \Validator::make(
-      array('numberOfPeople' => 'required|min:1'),
-      array('totalWithoutTip' => 'required')
-      );
 
+
+
+      $numberOfPeople = $request->get('numberOfPeople');
+      $totalWithoutTip = $request->get('totalWithoutTip');
+      $totalWithTip="";
+      $valueForEach="0";
+      $serviceValue= $request->get('service');
+      /*$this->validate($request,[
+      'numberOfPeople'=> 'required|min:1',
+      'totalWithoutTip'=> 'required',
+    ]);*/
       $validator = Validator::make(
         array(
             'numberOfPeople' => '',
@@ -32,22 +39,11 @@ class OrdersController extends Controller
             'numberOfPeople' => 'required|min:1',
             'totalWithoutTip' => 'required'
         )
-    );
-      $errors = $validator->messages();
-      dump($errors);
-      dump(count($errors));
-      dump($errors->all());
-      $numberOfPeople = $request->get('numberOfPeople');
-      $totalWithoutTip = $request->get('totalWithoutTip');
-      $totalWithTip="";
-      $valueForEach="0";
-      $serviceValue= $request->get('service');
-      /*$this->validate($request,[
-      'numberOfPeople'=> 'required|min:1',
-      'totalWithoutTip'=> 'required',
-    ]);*/
-
-
+      );
+    $errors = $validator->messages();
+    dump($errors);
+    dump(count($errors));
+    dump($errors->all());
 
         if ($serviceValue =='E'){
           $totalWithTip=$totalWithoutTip+($totalWithoutTip*0.2);
