@@ -24,10 +24,10 @@ class OrdersController extends Controller
       $valueForEach="0";
       $serviceValue= $request->get('service');
 
-      $this->validate($request,[
+      /*$this->validate($request,[
       'numberOfPeople'=> 'required|min:1',
       'totalWithoutTip'=> 'required',
-       ]);
+    ]);*/
 
         if ($serviceValue =='E'){
           $totalWithTip=$totalWithoutTip+($totalWithoutTip*0.2);
