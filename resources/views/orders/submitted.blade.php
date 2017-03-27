@@ -14,7 +14,7 @@
 @section('content')
 
 	    <div class="container">
-		{!!Form::open(['url'=>'/submitted','method'=>'GET','class'=>'form-horizantal'])!!}
+		{!!Form::open(['url'=>'/orders/submitted','method'=>'GET','class'=>'form-horizantal'])!!}
 			<div class="form-group">
 			{!!Form::label('numberOfPeople','Number Of People:')!!}
 			{!!Form::number('numberOfPeople',$numberOfPeople,['class'=>'form-control'])!!}
@@ -45,17 +45,20 @@
 
 		{!!Form::close()!!}
 		@if(count($errors) > 0)
+    <div class="alert alert-danger">
         <ul>
            @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>
            @endforeach
         </ul>
-        @endif
+    </div>
+    @else
 		<div class="alert alert-info">
 
                 <h3>{{ $valueForEach }}</h3>
 
         </div>
+    @endif
 		</div>
 
 
