@@ -44,7 +44,7 @@
 			</div>
 
 		{!!Form::close()!!}
-		@if(count($errors) > 0)
+		@if(!empty($errors))
     <div class="alert alert-danger">
         <ul>
            @foreach ($errors->all() as $error)
@@ -53,11 +53,11 @@
         </ul>
     </div>
     @else
-		<div class="alert alert-info">
+  		<div class="alert alert-info">
 
-                <h3>{{ $valueForEach }}</h3>
+                  <h3>{{ $valueForEach }}</h3>
 
-        </div>
+      </div>
     @endif
 		</div>
 
