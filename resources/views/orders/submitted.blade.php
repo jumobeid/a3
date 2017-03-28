@@ -15,6 +15,7 @@
 
 	    <div class="container">
 		{!!Form::open(['url'=>'/orders/submitted','method'=>'POST','class'=>'form-horizantal'])!!}
+    {{csrf_field()}}
 			<div class="form-group">
 			{!!Form::label('numberOfPeople','Number Of People:')!!}
 			{!!Form::number('numberOfPeople','$numberOfPeople',['class'=>'form-control'])!!}
