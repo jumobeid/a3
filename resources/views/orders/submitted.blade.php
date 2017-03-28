@@ -14,15 +14,15 @@
 @section('content')
 
 	    <div class="container">
-		{!!Form::open(['url'=>'/orders/submitted','method'=>'GET','class'=>'form-horizantal'])!!}
+		{!!Form::open(['url'=>'/orders/submitted','method'=>'POST','class'=>'form-horizantal'])!!}
 			<div class="form-group">
 			{!!Form::label('numberOfPeople','Number Of People:')!!}
-			{!!Form::number('numberOfPeople',$numberOfPeople,['class'=>'form-control'])!!}
+			{!!Form::number('numberOfPeople','$numberOfPeople',['class'=>'form-control'])!!}
 			</div>
 
 			<div class="form-group">
 			{!!Form::label('totalWithoutTip','Total Without Tip:')!!}
-			{!!Form::number('totalWithoutTip',$totalWithoutTip,['class'=>'form-control', 'step' => 'any'])!!}
+			{!!Form::number('totalWithoutTip','$totalWithoutTip',['class'=>'form-control', 'step' => 'any'])!!}
 			</div>
 
 			<div class="form-group">
@@ -44,21 +44,22 @@
 			</div>
 
 		{!!Form::close()!!}
+
+		<div class="alert alert-info">
+                  <h3>{{ $valueForEach }}</h3>
+         </div>
+
 		@if(!empty($errors))
-    <div class="alert alert-danger">
-        <ul>
+
+        <div class="alert alert-danger">
+          <ul>
            @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>
            @endforeach
-        </ul>
-    </div>
-    @else
-  		<div class="alert alert-info">
+          </ul>
+        </div>
+		@endif
 
-                  <h3>{{ $valueForEach }}</h3>
-
-      </div>
-    @endif
 		</div>
 
 

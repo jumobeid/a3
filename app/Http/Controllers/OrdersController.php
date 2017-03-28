@@ -8,42 +8,38 @@ use Validator, Input, Redirect;
 class OrdersController extends Controller
 {
     //
-    public function show($title = null){
-      return view('orders.show')->with([
-        'title'=>$title,
-      ]);
+    public function show(Request $request){
+		  $numberOfPeople = $request->get('numberOfPeople');
+		  $totalWithoutTip = $request->get('totalWithoutTip');
+		  $totalWithTip="";
+		  $valueForEach="";
+		  $serviceValue= $request->get('service');
+		  $isRound=$request->get('round');
+
+      return view('orders.submitted')->with([
+            'numberOfPeople' => $numberOfPeople,
+            'totalWithoutTip' => $totalWithoutTip,
+            'serviceValue' => $serviceValue,
+            'isRound' => $isRound,
+            'valueForEach'=>$valueForEach,
+             ]);
     }
+
     public function submitted(Request $request){
 
-
-      //$numberOfPeople="";
 
 
 
       $numberOfPeople = $request->get('numberOfPeople');
       $totalWithoutTip = $request->get('totalWithoutTip');
       $totalWithTip="";
-      $valueForEach="0";
+      $valueForEach="";
       $serviceValue= $request->get('service');
-      /*$this->validate($request,[
+      $this->validate($request,[
       'numberOfPeople'=> 'required|min:1',
       'totalWithoutTip'=> 'required',
-    ]);*/
-      $validator = Validator::make(
-        array(
-            'numberOfPeople' => '',
-            'totalWithoutTip' => ''
+      ]);
 
-        ),
-        array(
-            'numberOfPeople' => 'required|min:1',
-            'totalWithoutTip' => 'required'
-        )
-      );
-    $errors = $validator->messages();
-    dump($errors);
-    dump(count($errors));
-    dump($errors->all());
 
         if ($serviceValue =='E'){
           $totalWithTip=$totalWithoutTip+($totalWithoutTip*0.2);
@@ -66,6 +62,8 @@ class OrdersController extends Controller
             }
 
 
+
+
       return view('orders.submitted')->with([
             'numberOfPeople' => $numberOfPeople,
             'totalWithoutTip' => $totalWithoutTip,
@@ -73,7 +71,6 @@ class OrdersController extends Controller
             'isRound' => $isRound,
             'valueForEach'=>$valueForEach,
              ]);
-
 
 }
 }

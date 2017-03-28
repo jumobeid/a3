@@ -13,8 +13,9 @@
 /**
 * Main Route for orders /
 */
-//Route::post('/orders/{$title?}', 'OrdersController@show');
-Route::get('/orders/submitted', 'OrdersController@submitted');
+//Route::get('/orders/submitted', 'OrdersController@show');
+Route::get('/orders/submitted', 'OrdersController@show');
+Route::post('/orders/submitted', 'OrdersController@submitted');
 
 Route::get('/', function () {
     return view('welcome');
