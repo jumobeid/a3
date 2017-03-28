@@ -50,7 +50,7 @@
                   <h3>{{ $valueForEach }}</h3>
          </div>
 
-		@if(!empty($errors))
+		@if(count($errors)>0)
 
         <div class="alert alert-danger">
           <ul>
