@@ -27,6 +27,10 @@ class OrdersController extends Controller
 
     public function submitted(Request $request){
 
+      $this->validate($request,[
+      'numberOfPeople'=> 'required|min:1',
+      'totalWithoutTip'=> 'required',
+      ]);
 
 
 
@@ -35,10 +39,6 @@ class OrdersController extends Controller
       $totalWithTip="";
       $valueForEach="";
       $serviceValue= $request->get('service');
-      $this->validate($request,[
-      'numberOfPeople'=> 'required|min:1',
-      'totalWithoutTip'=> 'required',
-      ]);
 
 
         if ($serviceValue =='E'){
