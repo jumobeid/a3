@@ -10,6 +10,7 @@ class OrdersController extends Controller
     //
     public function show(Request $request){
 		  $numberOfPeople = $request->get('numberOfPeople');
+      
 		  $totalWithoutTip = $request->get('totalWithoutTip');
 		  $totalWithTip="";
 		  $valueForEach="";
