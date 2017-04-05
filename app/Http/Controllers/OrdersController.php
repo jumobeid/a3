@@ -10,7 +10,7 @@ class OrdersController extends Controller
     //
     public function show(Request $request){
 		  $numberOfPeople = $request->get('numberOfPeople');
-      
+
 		  $totalWithoutTip = $request->get('totalWithoutTip');
 		  $totalWithTip="";
 		  $valueForEach="";
@@ -23,7 +23,7 @@ class OrdersController extends Controller
             'serviceValue' => $serviceValue,
             'isRound' => $isRound,
             'valueForEach'=>$valueForEach,
-             ]);
+          ]);
     }
 
     public function submitted(Request $request){
@@ -57,7 +57,8 @@ class OrdersController extends Controller
         $isRound=$request->get('round');
            if ($numberOfPeople >=1){
               if ($isRound=='true'){
-              $valueForEach = round($totalWithTip /$numberOfPeople) ;
+              //larger tip is always better
+              $valueForEach = ceil($totalWithTip /$numberOfPeople) ;
               }else{
               $valueForEach = $totalWithTip /$numberOfPeople ;}
             }
