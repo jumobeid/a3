@@ -7,7 +7,7 @@
 
 
 @push('head')
-    <link href="/css/books/show.css" type='text/css' rel='stylesheet'>
+
 @endpush
 
 
@@ -16,7 +16,7 @@
 	    <div class="container">
 		{!!Form::open(['url'=>'/orders/submitted','method'=>'POST','class'=>'form-horizantal'])!!}
 			{{csrf_field()}}
-      
+
 			<div class="form-group">
 			{!!Form::label('numberOfPeople','Number Of People:')!!}
 			{!!Form::number('numberOfPeople',$numberOfPeople,['class'=>'form-control'])!!}
@@ -67,5 +67,5 @@
 
 
 @push('body')
-    <script src="/js/books/show.js"></script>
+  
 @endpush
