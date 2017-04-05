@@ -52,11 +52,13 @@
 		@if(count($errors)>0)
 
         <div class="alert alert-danger">
-          <ul>
+
            @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
+            <ul>
+             <li>{{ $error }}</li>
+            </ul>
            @endforeach
-          </ul>
+
         </div>
 		@endif
 
@@ -67,5 +69,5 @@
 
 
 @push('body')
-  
+
 @endpush
